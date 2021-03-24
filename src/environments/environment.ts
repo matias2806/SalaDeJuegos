@@ -11,7 +11,7 @@ export const environment = {
     storageBucket: "saladejuegos-92477.appspot.com",
     messagingSenderId: "786289774251",
     appId: "1:786289774251:web:1620188d1f295a3185b1ee"
-  },
+  }
 };
 
 /*
