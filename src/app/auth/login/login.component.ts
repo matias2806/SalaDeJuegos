@@ -22,16 +22,23 @@ export class LoginComponent implements OnInit {
 
   async onLogin(){
     const {email, password} = this.loginForm.value;
-    console.log('form ->',this.loginForm.value);
+    //console.log('form ->',this.loginForm.value);
     try {
       const user = this.AuthSvc.login(email, password);
+      
+      // .then((data)=> console.log(data));
+
+      
       if(user){
         //Redirect to home page
         console.log("imprimo",user);
         this.router.navigate(['/']);
       }
+      else{
+        console.log("else");
+      }
     } catch (error) {
-      console.log(error);
+      console.log("aa",error);
     }
   }
 }

@@ -1,0 +1,38 @@
+.cuadrado {
+    height: 100px;
+    width: 120px;
+    border: 3px solid black;
+}
+
+.rojo {
+    background-color: red;
+}
+
+.verde {
+    background-color: green;
+}
+
+.azul {
+    background-color: blue;
+}
+
+.hoja {
+    justify-content: center;
+    align-items: center;
+}
+
+.cruz{
+    font-size: 320px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: blue;
+}
+
+#cruz{
+    font-size: 30px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: blue; 
+}
+
+.auxMt{
+    margin-bottom: 0px !important;
+}

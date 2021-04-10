@@ -18,7 +18,7 @@ export class AuthService {
       const result = await this.afAuth.signInWithEmailAndPassword(email, password);
       return result;
     } catch (error) {
-      console.log(error);
+      console.log("bb",error.message);
     }
     return null;
   }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Mensaje } from 'src/clases/Mensaje';
+import { MensajesService } from '../services/mensajes.service';
 
 @Component({
   selector: 'app-home',
@@ -6,10 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
-  constructor() { }
+  public mensaje : Mensaje = new Mensaje();
+  constructor(private mensajeService: MensajesService) { }
 
   ngOnInit(): void {
   }
 
+  EnviarMensaje(){
+    console.log("metodo");
+    this.mensajeService.create(this.mensaje).then(()=>{
+      console.log("Mensaje enviado");
+    });
+    ;
+  }
 }
