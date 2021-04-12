@@ -1,0 +1,19 @@
+<!-- Esto es para donde quiera pegar el chat -->
+<!--<app-chat></app-chat>
+-->
+
+<div class="container main-container">
+    <div class="chat-window" *ngIf="AuthSvc.usuario.uid">
+        <h1>Chat</h1>
+        <hr>
+        <div class="app-mensajes" id="app-mensajes">
+            <div *ngFor="let chat of _cs.chats" [ngClass]="{ 'text-right': AuthSvc.usuario.uid == chat.uid}">
+                <span class="badge" [ngClass]="{ 'badge-success': AuthSvc.usuario.uid == chat.uid,
+                             'badge-primary': AuthSvc.usuario.uid != chat.uid}">{{chat.nombre}}</span>
+                <p>{{chat.mensaje}}</p>
+            </div>
+        </div>
+        <input type="text" name="mensaje" [(ngModel)]="mensaje" (keyup.enter)="enviarMensaje()"
+            placeholder="Ingrese Mensaje" class="form-control">
+    </div>
+</div>

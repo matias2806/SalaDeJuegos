@@ -12,7 +12,7 @@ import { AuthService } from 'src/app/auth/services/auth.service';
 export class NavbarComponent {
   public user$: Observable<any> = this.authSvc.afAuth.user;
 
-  constructor(private authSvc: AuthService, private router: Router) { }
+  constructor(public authSvc: AuthService, private router: Router) { }
 
   
   async onLogout(){
@@ -25,15 +25,4 @@ export class NavbarComponent {
     }
   }
   
-
-
-  // async ngOnInit() {
-    // NO ES NECESARIO
-  //   console.log('navbar');
-  //   this.user = await this.authSvc.getCurrentUser();
-  //   if(this.user){
-  //     this.isLogged = true;
-  //     console.log('User->', this.user);
-  //   }
-  // }
 }

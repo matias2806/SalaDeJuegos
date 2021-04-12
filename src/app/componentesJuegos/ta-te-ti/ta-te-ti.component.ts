@@ -10,26 +10,11 @@ import { Router } from '@angular/router';
 })
 export class TaTeTiComponent implements OnInit {
 
-  // //linea 1 de izq a der
-  // a1: string = '';
-  // a2: string = '';
-  // a3: string = '';
-  // //linea 2 de izq a der
-  // b1: string = '';
-  // b2: string = '';
-  // b3: string = '';
-  // //linea 3 de izq a der
-  // c1: string = '';
-  // c2: string = '';
-  // c3: string = '';
-  auxJugadas = "[{'posicion':'lugar', 'letra': 'o'},{'posicion':'lugar', 'letra': 'x'}]";
   jugadas: Clasejugadas[] = [];
-  arrayMovimientos = ['A1', 'A2', 'A3', 'B1', 'B2', 'B3', 'C1', 'C2', 'C3'] //9
+  arrayMovimientos = ['A1', 'A2', 'A3', 'B1', 'B2', 'B3', 'C1', 'C2', 'C3'] ;//9
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-    // this.limpiar();
-
   }
 
   jugada(tecla: string) {
@@ -154,7 +139,6 @@ export class TaTeTiComponent implements OnInit {
   jugadaMaquina() {
 
     let aux = this.arrayMovimientos[Math.floor(Math.random() * this.arrayMovimientos.length)]
-
     let index = this.arrayMovimientos.indexOf(aux);
     if (index > -1) {
       console.log("Turno maquina " + aux);
@@ -172,7 +156,7 @@ export class TaTeTiComponent implements OnInit {
       p.textContent = "X";
       p.style.color = "yellow";
       p.style.fontFamily = "'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif";
-      p.style.fontSize = "70px";
+      p.style.fontSize = "80px";
       p.style.textAlign = "center";
       p.className += "cruz";
 
@@ -187,24 +171,12 @@ export class TaTeTiComponent implements OnInit {
       p.textContent = "O";
       p.style.color = "white";
       p.style.fontFamily = "'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif";
-      p.style.fontSize = "70px";
+      p.style.fontSize = "80px";
       p.style.textAlign = "center";
       p.className += "circulo";
 
       aux.appendChild(p);
     }
   }
-
-  // limpiar() {
-  //   this.a1 = '';
-  //   this.a2 = '';
-  //   this.a3 = '';
-  //   this.b1 = '';
-  //   this.b2 = '';
-  //   this.b3 = '';
-  //   this.c1 = '';
-  //   this.c2 = '';
-  //   this.c3 = '';
-  // }
 
 }

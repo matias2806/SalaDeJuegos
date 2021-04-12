@@ -8,9 +8,17 @@ import { AngularFireAuth} from '@angular/fire/auth';
 @Injectable()
 export class AuthService {
   //public user: firebase.User ; // chusmear
+  public usuario: any= {};
 
   constructor(public afAuth: AngularFireAuth) {
-    
+    this.afAuth.authState.subscribe(user =>{
+      console.log("Estado del usuario", user);
+      if(!user){
+        return;
+      }
+      this.usuario.email = user.email;
+      this.usuario.uid = user.uid;
+    });
    }
 
   async login(email:string, password:string){
@@ -35,6 +43,7 @@ export class AuthService {
 
   async logout(){
     try {
+      this.usuario = {};
       await this.afAuth.signOut();
     //redirect o algo asi
     } catch (error) {

@@ -12,8 +12,11 @@
             <li class="nav-item active">
                 <a class="nav-link" [routerLink]="['/quienSoy']">¿Quien soy?</a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item active" *ngIf="authSvc.usuario.uid">
                 <a class="nav-link" [routerLink]="['/Listado']">Juegos</a>
+            </li>
+            <li class="nav-item active" *ngIf="authSvc.usuario.uid">
+                <a class="nav-link" [routerLink]="['/chat']">Chat</a>
             </li>
         </ul>
         <ul class="navbar-nav mx-auto" *ngIf="user$ |async as user; else login">
