@@ -1,6 +1,67 @@
-<div class="container mt-5 hoja">
-    <h1>Bienvenidos</h1>
+
+<!-- imagen de 200 x 250 SIEMPRE o sino agregar clase medidaImagen-->
+<div class="container mt-5">
+    <div class="pb-4">
+        <h1>Bienvenidos a la Sala de Juegos.</h1>
+    </div>
+    <div class="row mb-2">
+        <div class="col-md-6">
+            <div class="card flex-md-row mb-4 box-shadow h-md-250">
+                <div class="card-body d-flex flex-column align-items-start">
+                    <strong class="d-inline-block mb-2 text-primary">Entretenimiento</strong>
+                    <h3 class="mb-0">
+                        <a class="text-dark">Juegos</a>
+                    </h3>
+                    <div class="mb-1 text-muted">Subido el 16 De Abril</div>
+                    <p class="card-text mb-auto">
+                        Sección donde podras ver los distintos juegos.
+                    </p>
+                    <a routerLink="/Listado">Ir a jugar</a>
+                </div>
+                <img class="card-img-right flex-auto d-none d-md-block medidaImagen" src="../../assets/juego.jpg"
+                    alt="imagen juego" />
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card flex-md-row mb-4 box-shadow h-md-250">
+                <div class="card-body d-flex flex-column align-items-start">
+                    <strong class="d-inline-block mb-2 text-primary">Comunicación</strong>
+                    <h3 class="mb-0">
+                        <a class="text-dark">Chat</a>
+                    </h3>
+                    <div class="mb-1 text-muted">Subido el 16 De Abril</div>
+                    <p class="card-text mb-auto">
+                        Chat para que interactuen los distintos participantes.
+                    </p>
+                    <a routerLink="/chat">Ir al chat</a>
+                </div>
+                <img class="card-img-right flex-auto d-none d-md-block medidaImagen" src="../../assets/chat.png"
+                    alt="imagen chat" />
+            </div>
+        </div>
+    </div>
+    <div class="row mb-2">
+        <div class="col-md-6">
+            <div class="card flex-md-row mb-4 box-shadow h-md-250">
+                <div class="card-body d-flex flex-column align-items-start">
+                    <strong class="d-inline-block mb-2 text-primary">Derecho de autor</strong>
+                    <h3 class="mb-0">
+                        <a class="text-dark">¿Quien soy?</a>
+                    </h3>
+                    <div class="mb-1 text-muted">Subido el 16 De Abril</div>
+                    <p class="card-text mb-auto">
+                        Breve descripcion sobre el autor de la pagina.
+                    </p>
+                    <a routerLink="/quienSoy">Ir a ¿Quien soy?</a>
+                </div>
+                <img class="card-img-right flex-auto d-none d-md-block medidaImagen" src="../../assets/quienSoy.png"
+                    alt="imagen chat" />
+            </div>
+        </div>
+    </div>
+
 </div>
+
 
 
 <!-- <input type="text" [(ngModel)]="mensaje.texto">

@@ -42,9 +42,8 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  async cargarAdmin(){
+  cargarAdmin(){
     this.loginForm.setValue({email: 'admin@gmail.com', password: 'admin01'});
-    await this.onLogin();
   }
 
 }
