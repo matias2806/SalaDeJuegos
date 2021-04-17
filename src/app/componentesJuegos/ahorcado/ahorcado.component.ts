@@ -1,0 +1,134 @@
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms'
+import Swal from 'sweetalert2';
+
+@Component({
+  selector: 'app-ahorcado',
+  templateUrl: './ahorcado.component.html',
+  styleUrls: ['./ahorcado.component.css']
+})
+export class AhorcadoComponent implements OnInit {
+  arrayPalbras: string[] = ['murcielagos', 'submarino', 'tios', 'comida', 'cueva', 'ingles', 'versiculo', 'tsunami', 'selva', 'sequia', 'textos', 'cuerno', 'pulsera', 'ahorcado'];
+  intentosFijos = 5; 
+  intentos = 0; 
+  palabra: string = '';
+  palabraConGuiones: string = ''
+  letraTipeada: string;
+  nombreFoto: string = 'ahorcado_1.png';
+
+  constructor() {
+  }
+
+  ngOnInit(): void {
+    this.palabra = this.elejirPalabra();
+    this.palabraConGuionesTranformacion(this.palabra);
+  }
+
+  elejirPalabra() {
+    let aux = this.arrayPalbras[Math.floor(Math.random() * this.arrayPalbras.length)]
+    console.log(aux);
+    return aux;
+  }
+
+  palabraConGuionesTranformacion(palabra: string) {
+    this.palabraConGuiones = palabra.replace(/./g, "_ ");
+  }
+
+
+  calcular() {
+    var aux: string[] = [];
+    var aux2: string = "";
+    var flag = false;
+
+    for (const iterator of this.palabraConGuiones) {
+      aux.push(iterator);
+    }
+
+    if (this.letraTipeada != '') {
+      for (let i = 0; i < this.palabra.length; i++) {
+        if (this.letraTipeada == this.palabra[i]) {
+          flag = true;
+          aux[i * 2] = this.letraTipeada;
+
+
+          aux.forEach(element => {
+            aux2 += element;
+          });
+          if (this.palabra.length) {
+            this.palabraConGuiones = aux2;
+          }
+
+          // console.log("aux2 =>", aux2);
+          // console.log("palabra =>", i);
+          // console.log("palabraConGuiones largo =>", this.palabraConGuiones.length, this.palabraConGuiones);
+          // console.log("aux =>", aux);
+          // console.log("i*2 =>", i * 2);
+        }
+      }
+      if (flag == false) {
+        //No esta
+        this.intentos++;
+        this.cambiaFoto();
+      }
+      this.validarGanador()
+    }
+    this.letraTipeada = '';
+  }
+
+  cambiaFoto() {
+    switch (this.intentos) {
+      case 1:
+        console.log("aaaaaaaaaaa");
+        this.nombreFoto = 'ahorcado_2.png';
+        break;
+      case 2:
+        this.nombreFoto = 'ahorcado_3.png';
+        break;
+      case 3:
+        this.nombreFoto = 'ahorcado_4.png';
+        break;
+      case 4:
+        this.nombreFoto = 'ahorcado_5.png';
+        break;
+      case 5:
+        this.nombreFoto = 'ahorcado_6.png';
+        this.muestraMensaje("perdiste");
+        break;
+    }
+  }
+
+
+  validarGanador(){
+    var gano=true;
+
+    for (const i of this.palabraConGuiones) {
+      if(i == "_"){
+        gano=false;
+      }
+    }
+    if(gano){ 
+      this.muestraMensaje("ganaste");
+    }
+  }
+
+  muestraMensaje(aux: string){
+    if(aux == "perdiste"){
+      Swal.fire({
+        title: '¡Perdiste!',
+        text: '¡Sigue practicando! La palabra correcta era '+ this.palabra,
+        position: 'top',
+      });
+    }
+    if(aux == "ganaste"){
+      Swal.fire({
+        title: '¡Ganaste!',
+        text: 'Sos un campeón, Adivinaste la palabra.',
+        position: 'top',
+      });
+    }
+  }
+
+
+
+}

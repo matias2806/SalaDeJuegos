@@ -1,0 +1,24 @@
+<div class="container mt-5 hoja">
+    <div class="row" id="app">
+        <div class="col-12 text-center">
+            <h1 class="text-success"><b>Ahorcado</b></h1>
+            <!-- <h3 class="displayed-word">Palabra: {{palabra}}</h3> -->
+            <h3 class="displayed-word">Palabra: {{palabraConGuiones}}</h3>
+            <p class="h4 text-danger">Intentos: {{intentos}} de {{intentosFijos}}</p>
+            <br>
+            <div class="ahorcado">
+                <img class="img-fluid" class="imagenAhorcado" src="../../../assets/Ahorcado/{{nombreFoto}}" alt="">
+            </div>
+        </div>
+    </div>
+    
+    <div class="row mt-4 ">
+        <div class="col-3 text-center"></div>
+        <div class="col-6 text-center">
+            <div class="input-group">
+                <input [(ngModel)]="letraTipeada" class="form-control largo  " type="text" maxlength="1">
+                <button id="calcular" (click)="calcular()" class="btn btn-primary">Enviar Letra</button>
+            </div>
+        </div>
+    </div>
+</div>

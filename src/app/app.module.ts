@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms'
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
@@ -16,8 +17,6 @@ import { AuthService } from './auth/services/auth.service';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { QuienSoyComponent } from './quien-soy/quien-soy.component';
-import { TaTeTiComponent } from './componentesJuegos/ta-te-ti/ta-te-ti.component';
-import { PiedPapTijComponent } from './componentesJuegos/pied-pap-tij/pied-pap-tij.component';
 import { ListadoComponent } from './componentesJuegos/listado/listado.component';
 import { ChatComponent } from './chat/chat.component';
 
@@ -26,10 +25,9 @@ import { ChatComponent } from './chat/chat.component';
     AppComponent,
     QuienSoyComponent,
     NavbarComponent,
-    TaTeTiComponent,
-    PiedPapTijComponent,
     ListadoComponent,
-    ChatComponent
+    ChatComponent,
+    // HttpClientModule
   ],
   imports: [
     FormsModule,
@@ -38,6 +36,7 @@ import { ChatComponent } from './chat/chat.component';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
+    HttpClientModule,
     // AngularFirestore,
     ReactiveFormsModule
   ],
