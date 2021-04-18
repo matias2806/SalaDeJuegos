@@ -2,6 +2,7 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms'
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-ahorcado',
@@ -17,7 +18,7 @@ export class AhorcadoComponent implements OnInit {
   letraTipeada: string;
   nombreFoto: string = 'ahorcado_1.png';
 
-  constructor() {
+  constructor(private router: Router) {
   }
 
   ngOnInit(): void {
@@ -27,7 +28,6 @@ export class AhorcadoComponent implements OnInit {
 
   elejirPalabra() {
     let aux = this.arrayPalbras[Math.floor(Math.random() * this.arrayPalbras.length)]
-    console.log(aux);
     return aux;
   }
 
@@ -79,7 +79,6 @@ export class AhorcadoComponent implements OnInit {
   cambiaFoto() {
     switch (this.intentos) {
       case 1:
-        console.log("aaaaaaaaaaa");
         this.nombreFoto = 'ahorcado_2.png';
         break;
       case 2:
@@ -118,6 +117,11 @@ export class AhorcadoComponent implements OnInit {
         title: '¡Perdiste!',
         text: '¡Sigue practicando! La palabra correcta era '+ this.palabra,
         position: 'top',
+      }).finally(()=>{
+        this.palabra = this.elejirPalabra();
+        this.palabraConGuionesTranformacion(this.palabra);
+        this.nombreFoto = 'ahorcado_1.png';
+        this.intentos = 0;
       });
     }
     if(aux == "ganaste"){
@@ -125,8 +129,17 @@ export class AhorcadoComponent implements OnInit {
         title: '¡Ganaste!',
         text: 'Sos un campeón, Adivinaste la palabra.',
         position: 'top',
+      }).finally(()=>{
+        this.palabra = this.elejirPalabra();
+        this.palabraConGuionesTranformacion(this.palabra);
+        this.nombreFoto = 'ahorcado_1.png';
+        this.intentos = 0;
       });
     }
+    // setTimeout(() => {
+    //   this.router.navigate(['/Listado']);
+    //   Swal.close();
+    // }, 2000);
   }
 
 

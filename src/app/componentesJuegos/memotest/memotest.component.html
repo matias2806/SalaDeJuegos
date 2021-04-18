@@ -1,11 +1,12 @@
-<p>memotest works!</p>
-
 <div class="container mt-5 hoja">
+    <h3 class="mb-2">Intentos {{intentos}} de 14 totales</h3>
     <div class="row mb-2 auxMt">
-        <div class="col-3" *ngFor="let item of arrayCards;">
-            <!-- <h1>{{item.nombre}}</h1> -->
-            <!-- class="{{item.id}}" -->
-            <img src="{{item.imagen}}" alt="" id="disenio" >
+        <div class="col-3" *ngFor="let item of arrayCards;" id="wrapper">
+            
+            <!-- <p>idUnico: {{item.idUnico}}</p> -->
+            
+            <img src="{{item.imagen}}" class="disenio bloque" alt="" id="{{item.idUnico}}"
+                (click)="control(item)">
         </div>
     </div>
 </div>

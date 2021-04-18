@@ -1,13 +1,15 @@
 export class Card {
     id:number;
-    nombre:string;
     imagen:string;
     orden:number;
+    idUnico:number;
+    match:number;
 
-    constructor(nombre:string, imagen:string, id:number, orden:number){
+    constructor( imagen:string, id:number, orden:number, idUnico:number, match:number){
         this.id = id;
-        this.nombre = nombre;
-        this.imagen = imagen;
         this.orden = orden;
+        this.idUnico = idUnico;
+        this.match = match;
+        this.imagen = imagen;
     }
 }
