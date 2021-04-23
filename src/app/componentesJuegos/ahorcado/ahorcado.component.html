@@ -1,5 +1,5 @@
-<div class="container mt-5 hoja">
-    <div class="row" id="app">
+<div class="container hoja">
+    <div class="row tabla" id="app">
         <div class="col-12 text-center">
             <h1 class="text-success"><b>Ahorcado</b></h1>
             <!-- <h3 class="displayed-word">Palabra: {{palabra}}</h3> -->
@@ -11,14 +11,46 @@
             </div>
         </div>
     </div>
-    
-    <div class="row mt-4 ">
-        <div class="col-3 text-center"></div>
-        <div class="col-6 text-center">
-            <div class="input-group">
-                <input [(ngModel)]="letraTipeada" class="form-control largo  " type="text" maxlength="1">
-                <button id="calcular" (click)="calcular()" class="btn btn-primary">Enviar Letra</button>
-            </div>
-        </div>
+    <div class="row mt-2 "id="app">
+        <div class="col-2 text-center"></div>
+        <div class="col-1 text-center"><a class="button" (click)="calcular('a')">A</a></div>
+        <div class="col-1 text-center"><a class="button" (click)="calcular('b')">B</a></div>
+        <div class="col-1 text-center"><a class="button" (click)="calcular('c')">C</a></div>
+        <div class="col-1 text-center"><a class="button" (click)="calcular('d')">D</a></div>
+        <div class="col-1 text-center"><a class="button" (click)="calcular('e')">E</a></div>
+        <div class="col-1 text-center"><a class="button" (click)="calcular('f')">F</a></div>
+        <div class="col-1 text-center"><a class="button" (click)="calcular('g')">G</a></div>
+        <div class="col-1 text-center"><a class="button" (click)="calcular('h')">H</a></div>
+        <div class="col-1 text-center"><a class="button esp" (click)="calcular('i')">I</a></div>
+        <div class="col-1 text-center"></div>
     </div>
+    
+    <div class="row mt-6 "id="app">
+        <div class="col-2 text-center"></div>
+        <div class="col-1 text-center"><a class="button" (click)="calcular('j')">J</a></div>
+        <div class="col-1 text-center"><a class="button" (click)="calcular('k')">K</a></div>
+        <div class="col-1 text-center"><a class="button" (click)="calcular('l')">L</a></div>
+        <div class="col-1 text-center"><a class="button" (click)="calcular('m')">M</a></div>   
+        <div class="col-1 text-center"><a class="button" (click)="calcular('n')">N</a></div>
+        <div class="col-1 text-center"><a class="button" (click)="calcular('ñ')">Ñ</a></div>
+        <div class="col-1 text-center"><a class="button" (click)="calcular('o')">O</a></div>
+        <div class="col-1 text-center"><a class="button" (click)="calcular('p')">P</a></div>       
+        <div class="col-1 text-center"><a class="button" (click)="calcular('q')">Q</a></div>
+        <!-- <div class="col-1 text-center"></div> -->
+    </div>
+    <div class="row mt-6 "id="app">
+        <div class="col-2 text-center"></div>
+        <div class="col-1 text-center"><a class="button" (click)="calcular('r')">R</a></div>
+        <div class="col-1 text-center"><a class="button" (click)="calcular('s')">S</a></div>
+        <div class="col-1 text-center"><a class="button" (click)="calcular('t')">T</a></div>
+        <div class="col-1 text-center"><a class="button" (click)="calcular('u')">U</a></div>
+        <div class="col-1 text-center"><a class="button" (click)="calcular('v')">V</a></div>
+        <div class="col-1 text-center"><a class="button" (click)="calcular('w')">W</a></div>
+        <div class="col-1 text-center"><a class="button" (click)="calcular('x')">X</a></div>
+        <div class="col-1 text-center"><a class="button" (click)="calcular('y')">Y</a></div>
+        <div class="col-1 text-center"><a class="button" (click)="calcular('z')">Z</a></div>
+        <div class="col-2 text-center"></div>
+    </div>
+    <div class="mb-5"></div>
+    
 </div>

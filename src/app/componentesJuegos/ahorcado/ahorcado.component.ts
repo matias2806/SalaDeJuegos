@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-ahorcado',
   templateUrl: './ahorcado.component.html',
-  styleUrls: ['./ahorcado.component.css']
+  styleUrls: ['./ahorcado.component.scss']
 })
 export class AhorcadoComponent implements OnInit {
   arrayPalbras: string[] = ['murcielagos', 'submarino', 'tios', 'comida', 'cueva', 'ingles', 'versiculo', 'tsunami', 'selva', 'sequia', 'cuerno', 'pulsera', 'ahorcado', 'delfin', 'himnos', 'frutas', 'lineas' ];
@@ -15,7 +15,6 @@ export class AhorcadoComponent implements OnInit {
   intentos = 0; 
   palabra: string = '';
   palabraConGuiones: string = ''
-  letraTipeada: string;
   nombreFoto: string = 'ahorcado_1.png';
 
   constructor(private router: Router) {
@@ -35,8 +34,7 @@ export class AhorcadoComponent implements OnInit {
     this.palabraConGuiones = palabra.replace(/./g, "_ ");
   }
 
-
-  calcular() {
+  calcular(tecla:string) {
     var aux: string[] = [];
     var aux2: string = "";
     var flag = false;
@@ -45,11 +43,11 @@ export class AhorcadoComponent implements OnInit {
       aux.push(iterator);
     }
 
-    if (this.letraTipeada != '') {
+    if (tecla != '') {
       for (let i = 0; i < this.palabra.length; i++) {
-        if (this.letraTipeada == this.palabra[i]) {
+        if (tecla == this.palabra[i]) {
           flag = true;
-          aux[i * 2] = this.letraTipeada;
+          aux[i * 2] = tecla;
 
 
           aux.forEach(element => {
@@ -73,7 +71,7 @@ export class AhorcadoComponent implements OnInit {
       }
       this.validarGanador()
     }
-    this.letraTipeada = '';
+    tecla = '';
   }
 
   cambiaFoto() {
@@ -142,6 +140,11 @@ export class AhorcadoComponent implements OnInit {
     // }, 2000);
   }
 
+
+  tecla(tecla:string){
+    console.log(tecla);
+    return tecla;
+  }
 
 
 }
