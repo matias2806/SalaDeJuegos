@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./ahorcado.component.scss']
 })
 export class AhorcadoComponent implements OnInit {
-  arrayPalbras: string[] = ['murcielagos', 'submarino', 'tios', 'comida', 'cueva', 'ingles', 'versiculo', 'tsunami', 'selva', 'sequia', 'cuerno', 'pulsera', 'ahorcado', 'delfin', 'himnos', 'frutas', 'lineas' ];
+  arrayPalbras: string[] = ['murcielagos', 'submarino', 'tios', 'comida', 'cueva', 'ingles', 'versiculo', 'tsunami', 'selva', 'sequia', 'cuerno', 'pulsera', 'sodero', 'delfin', 'himnos', 'frutas', 'lineas','sueldo','quiero','tren','tiburon' ];
   intentosFijos = 5; 
   intentos = 0; 
   palabra: string = '';
