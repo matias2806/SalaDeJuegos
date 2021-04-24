@@ -20,7 +20,9 @@ export class AhorcadoComponent implements OnInit {
 
   elemento:any;
   
-  constructor(private router: Router, public _rs: ResultadosService) { }
+  constructor(private router: Router, public _rs: ResultadosService) {
+    this._rs.cargarResultados().subscribe(()=>{});
+   }
 
   ngOnInit(): void {
     this.palabra = this.elejirPalabra();
