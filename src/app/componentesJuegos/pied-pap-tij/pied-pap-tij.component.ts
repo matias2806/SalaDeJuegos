@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ignoreElements } from 'rxjs/operators';
 import Swal from 'sweetalert2';
+import { ResultadosService } from '../services/resultados.service';
 
 @Component({
   selector: 'app-pied-pap-tij',
@@ -8,8 +9,10 @@ import Swal from 'sweetalert2';
   styleUrls: ['./pied-pap-tij.component.css']
 })
 export class PiedPapTijComponent implements OnInit {
+
   jugadas = ['piedra', 'papel', 'tijera'] ;
-  constructor() { }
+  constructor(public _rs: ResultadosService) { 
+  }
 
   ngOnInit(): void {
   }
@@ -52,6 +55,7 @@ export class PiedPapTijComponent implements OnInit {
 
   muestraMensaje(aux: string, gm: string){
     if(aux == "perdiste"){
+      this._rs.agregarResultado("Perdedor", "Piedra, papel o tijera");
       Swal.fire({
         title: '¡Perdiste!',
         text: '¡Sigue practicando!',
@@ -62,6 +66,7 @@ export class PiedPapTijComponent implements OnInit {
       });
     }
     if(aux == "ganaste"){
+      this._rs.agregarResultado("Ganador", "Piedra, papel o tijera");
       Swal.fire({
         title: '¡Ganaste!',
         text: 'Sos un campeón, Me ganaste.',
@@ -72,6 +77,7 @@ export class PiedPapTijComponent implements OnInit {
       });
     }
     if(aux == "empate"){
+      this._rs.agregarResultado("Empate", "Piedra, papel o tijera");
       Swal.fire({
         title: '¡Empate!',
         text: '¡Quiero la revancha!',

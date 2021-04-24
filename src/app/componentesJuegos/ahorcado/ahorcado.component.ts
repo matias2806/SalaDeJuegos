@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms'
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { ResultadosService } from '../services/resultados.service';
 
 @Component({
   selector: 'app-ahorcado',
@@ -17,8 +18,7 @@ export class AhorcadoComponent implements OnInit {
   palabraConGuiones: string = ''
   nombreFoto: string = 'ahorcado_1.png';
 
-  constructor(private router: Router) {
-  }
+  constructor(private router: Router, public _rs: ResultadosService) { }
 
   ngOnInit(): void {
     this.palabra = this.elejirPalabra();
@@ -111,6 +111,7 @@ export class AhorcadoComponent implements OnInit {
 
   muestraMensaje(aux: string){
     if(aux == "perdiste"){
+      this._rs.agregarResultado("Perdedor", "Ahorcado");
       Swal.fire({
         title: '¡Perdiste!',
         text: '¡Sigue practicando! La palabra correcta era '+ this.palabra,
@@ -123,6 +124,7 @@ export class AhorcadoComponent implements OnInit {
       });
     }
     if(aux == "ganaste"){
+      this._rs.agregarResultado("Ganador", "Ahorcado");
       Swal.fire({
         title: '¡Ganaste!',
         text: 'Sos un campeón, Adivinaste la palabra.',

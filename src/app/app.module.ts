@@ -20,6 +20,7 @@ import { QuienSoyComponent } from './quien-soy/quien-soy.component';
 import { ListadoComponent } from './componentesJuegos/listado/listado.component';
 import { ChatComponent } from './chat/chat.component';
 import { EncuestaComponent } from './encuesta/encuesta.component';
+import { ResultadosComponent } from './componentesJuegos/resultados/resultados.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { EncuestaComponent } from './encuesta/encuesta.component';
     ListadoComponent,
     ChatComponent,
     EncuestaComponent,
+    ResultadosComponent,
   ],
   imports: [
     FormsModule,

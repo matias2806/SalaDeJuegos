@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Mensaje } from '../interface/mensaje.interface';
 import { map } from 'rxjs/operators';
-import 'rxjs/add/operator/map'
+import 'rxjs/add/operator/map';
 import { AuthService } from '../../auth/services/auth.service';
 
 @Injectable({

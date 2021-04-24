@@ -7,6 +7,7 @@ import { ListadoComponent } from './componentesJuegos/listado/listado.component'
 import { ChatComponent } from './chat/chat.component';
 import { QuienSoyComponent } from './quien-soy/quien-soy.component';
 import { EncuestaComponent } from './encuesta/encuesta.component';
+import { ResultadosComponent } from './componentesJuegos/resultados/resultados.component';
 
 const routes: Routes = [
 
@@ -17,6 +18,7 @@ const routes: Routes = [
   //{ path: 'tateti', component: TaTeTiComponent }, (viejo)
   { path: 'chat', component: ChatComponent },
   { path: 'encuesta', component: EncuestaComponent },
+  { path: 'resultados', component: ResultadosComponent },
 
   { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
   { path: 'login', loadChildren: () => import('./auth/login/login.module').then(m => m.LoginModule) },

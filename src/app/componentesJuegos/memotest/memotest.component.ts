@@ -4,6 +4,7 @@ import { BanderasService } from '../services/banderas.service';
 import { Card } from '../Models/card';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { ResultadosService } from '../services/resultados.service';
 
 @Component({
   selector: 'app-memotest',
@@ -26,7 +27,7 @@ export class MemotestComponent implements OnInit {
   idMatch2 = "";
   bandera = "false";
 
-  constructor(private Bservice: BanderasService, private router: Router) { }
+  constructor(private Bservice: BanderasService, private router: Router, public _rs: ResultadosService) { }
 
   async ngOnInit() {
 
@@ -82,7 +83,7 @@ export class MemotestComponent implements OnInit {
     img2?.classList.add('class', "bloque");
   }
 
- 
+
   control(imagen: any) {
     var img = document.getElementById(imagen.idUnico);
     var auxClases = img?.className;
@@ -144,10 +145,10 @@ export class MemotestComponent implements OnInit {
         var img = document.getElementById(e.idUnico.toString());
         auxImg = img?.className;
         if (!auxImg?.includes("bloqueada")) {
-          flagGano="false";
+          flagGano = "false";
         }
       });
-      if(flagGano =="true"){
+      if (flagGano == "true") {
         this.muestraMensaje("ganaste");
       }
     }
@@ -156,18 +157,20 @@ export class MemotestComponent implements OnInit {
 
   muestraMensaje(aux: string) {
     if (aux == "perdiste") {
+      this._rs.agregarResultado("Perdedor", "Memotest");
       Swal.fire({
         title: '¡Perdiste!',
         text: '¡No te rindas!',
-      }).finally(()=>{
+      }).finally(() => {
         this.router.navigate(['/Listado']);
       });
     }
     if (aux == "ganaste") {
+      this._rs.agregarResultado("Ganador", "Memotest");
       Swal.fire({
         title: '¡Ganaste!',
         text: 'Sabia que lo lograrias, Le ganaste a la maquina.',
-      }).finally(()=>{
+      }).finally(() => {
         this.router.navigate(['/Listado']);
       });
     }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Clasejugadas } from '../../Models/jugadas';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { ResultadosService } from '../services/resultados.service';
 
 @Component({
   selector: 'app-ta-te-ti',
@@ -9,10 +10,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./ta-te-ti.component.css']
 })
 export class TaTeTiComponent implements OnInit {
-
+  
+  
   jugadas: Clasejugadas[] = [];
   arrayMovimientos = ['A1', 'A2', 'A3', 'B1', 'B2', 'B3', 'C1', 'C2', 'C3'] ;//9
-  constructor(private router: Router) { }
+
+
+  constructor(private router: Router, public _rs: ResultadosService) { }
 
   ngOnInit(): void {
   }
@@ -35,6 +39,7 @@ export class TaTeTiComponent implements OnInit {
         if(aux != -1){
           if(ganoM ==false){
             ganoH = true;
+            this._rs.agregarResultado("Ganador", "Ta-Te-Ti");
             Swal.fire({
               title: 'Ganaste',
               text: 'Felicitaciones le ganaste a la maquina!',
@@ -55,6 +60,7 @@ export class TaTeTiComponent implements OnInit {
         if(aux != -1){
           if(ganoH == false){
             ganoM = true;
+            this._rs.agregarResultado("Perdedor", "Ta-Te-Ti");
             Swal.fire({
               title: 'Perdiste',
               text: 'Te gano una maquina, No te rindas!',
@@ -70,6 +76,7 @@ export class TaTeTiComponent implements OnInit {
 
       if(this.arrayMovimientos.length == 0){
         if(ganoH == false && ganoM == false){
+          this._rs.agregarResultado("Empate", "Ta-Te-Ti");
           Swal.fire({
             title: 'Empate',
             text: 'Casi te gana una maquina, Eso estubo cerca!',
