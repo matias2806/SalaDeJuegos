@@ -11,12 +11,15 @@ import { ResultadosService } from '../services/resultados.service';
 })
 export class TaTeTiComponent implements OnInit {
   
+  elemento:any;
   
   jugadas: Clasejugadas[] = [];
   arrayMovimientos = ['A1', 'A2', 'A3', 'B1', 'B2', 'B3', 'C1', 'C2', 'C3'] ;//9
 
 
-  constructor(private router: Router, public _rs: ResultadosService) { }
+  constructor(private router: Router, public _rs: ResultadosService) {
+    this._rs.cargarResultados().subscribe(()=>{});
+   }
 
   ngOnInit(): void {
   }

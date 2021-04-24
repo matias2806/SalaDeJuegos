@@ -9,6 +9,7 @@ import { ResultadosService } from '../services/resultados.service';
   styleUrls: ['./pied-pap-tij.component.css']
 })
 export class PiedPapTijComponent implements OnInit {
+  elemento:any;
 
   jugadas = ['piedra', 'papel', 'tijera'] ;
   constructor(public _rs: ResultadosService) { 

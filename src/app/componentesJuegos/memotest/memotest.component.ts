@@ -13,6 +13,8 @@ import { ResultadosService } from '../services/resultados.service';
   providers: [BanderasService],
 })
 export class MemotestComponent implements OnInit {
+  
+  elemento:any;
 
   idUnico = 10;
   match: number = 0;

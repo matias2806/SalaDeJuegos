@@ -18,6 +18,8 @@ export class AhorcadoComponent implements OnInit {
   palabraConGuiones: string = ''
   nombreFoto: string = 'ahorcado_1.png';
 
+  elemento:any;
+  
   constructor(private router: Router, public _rs: ResultadosService) { }
 
   ngOnInit(): void {
