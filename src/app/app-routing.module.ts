@@ -6,6 +6,7 @@ import { ListadoComponent } from './componentesJuegos/listado/listado.component'
 //import { TaTeTiComponent } from './componentesJuegos/ta-te-ti/ta-te-ti.component';
 import { ChatComponent } from './chat/chat.component';
 import { QuienSoyComponent } from './quien-soy/quien-soy.component';
+import { EncuestaComponent } from './encuesta/encuesta.component';
 
 const routes: Routes = [
 
@@ -15,6 +16,7 @@ const routes: Routes = [
   //{ path: 'ppt', component: PiedPapTijComponent },
   //{ path: 'tateti', component: TaTeTiComponent }, (viejo)
   { path: 'chat', component: ChatComponent },
+  { path: 'encuesta', component: EncuestaComponent },
 
   { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
   { path: 'login', loadChildren: () => import('./auth/login/login.module').then(m => m.LoginModule) },

@@ -19,6 +19,7 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { QuienSoyComponent } from './quien-soy/quien-soy.component';
 import { ListadoComponent } from './componentesJuegos/listado/listado.component';
 import { ChatComponent } from './chat/chat.component';
+import { EncuestaComponent } from './encuesta/encuesta.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { ChatComponent } from './chat/chat.component';
     NavbarComponent,
     ListadoComponent,
     ChatComponent,
-    // HttpClientModule
+    EncuestaComponent,
   ],
   imports: [
     FormsModule,
@@ -37,7 +38,6 @@ import { ChatComponent } from './chat/chat.component';
     AngularFireAuthModule,
     AngularFireDatabaseModule,
     HttpClientModule,
-    // AngularFirestore,
     ReactiveFormsModule
   ],
   providers: [AuthService],
